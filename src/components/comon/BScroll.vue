@@ -10,7 +10,7 @@
 import BScroll from 'better-scroll';
 
 export default {
-  name: bscroll,
+  name: scroll,
   components: {
     data(){
       return{

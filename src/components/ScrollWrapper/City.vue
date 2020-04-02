@@ -4,7 +4,7 @@
 			<current-city></current-city>
 			<city-list></city-list>
 		</div>
-  </div>-->
+  </div> -->
   <bscroll>
     <current-city></current-city>
     <city-list></city-list>
@@ -12,8 +12,8 @@
 </template>
 
 <script>
-// import BetterScroll from 'better-scroll';
-import bscroll from "@/assets/components/comon/BScroll";
+import BetterScroll from 'better-scroll';
+import bscroll from "../comon/BScroll"
 import CurrentCity from "./CityList/CurrentCity";
 import CityList from "./CityList";
 
