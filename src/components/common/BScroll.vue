@@ -1,6 +1,6 @@
 <template>
-  <div ref='wrapper'>
-   <div class="content">
+  <div class="scroll-wrapper" ref='wrapper'>
+   <div class="scroll-conetent">
      <slot></slot>
    </div>
   </div>
@@ -10,18 +10,16 @@
 import BScroll from 'better-scroll';
 
 export default {
-  name: scroll,
+  name: 'Scroll',
   components: {
     data(){
       return{
-        bscroll:null
+        Scroll:null
       }
     }
   },
   mounted(){
-    this.bscroll = new BScroll(this.$refs.wrapper,{
-
-    })
+    this.Scroll = new BScroll(this.$refs.wrapper)
   }
 }
 </script>

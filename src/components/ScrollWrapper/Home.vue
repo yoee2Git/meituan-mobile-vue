@@ -17,10 +17,13 @@
       <error :errorShow="errorShow"></error>
 		</div>
 	</div>
+
 </template>
 
 <script>
   import BetterScroll from 'better-scroll';
+
+
   import CategoryIcons from './CategoryIcons';
   import HomeTitle from './Sub/HomeTitle';
   import ViewList from './ViewList';
@@ -71,7 +74,7 @@
 			...mapState(['cityId'])
 		},
 		mounted () {
-			this.scroll = new BetterScroll(this.$refs.wrapper);
+      this.scroll = new BetterScroll(this.$refs.wrapper);
       this.currentCityId = this.cityId;
 			this.getHomeDatas(this.cityId);
 		},

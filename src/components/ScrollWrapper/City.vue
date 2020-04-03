@@ -1,19 +1,14 @@
 <template>
-  <!-- <div class="scroll-wrapper" ref="wrapper">
-		<div class="scroll-conetent">
-			<current-city></current-city>
-			<city-list></city-list>
-		</div>
-  </div> -->
-  <bscroll>
+  <Scroll>
     <current-city></current-city>
     <city-list></city-list>
-  </bscroll>
+  </Scroll>
 </template>
 
 <script>
-import BetterScroll from 'better-scroll';
-import bscroll from "../comon/BScroll"
+// import BetterScroll from 'better-scroll';
+import Scroll from "../common/BScroll"
+
 import CurrentCity from "./CityList/CurrentCity";
 import CityList from "./CityList";
 
@@ -22,7 +17,7 @@ export default {
   components: {
     CurrentCity,
     CityList,
-    bscroll
+    Scroll
   },
   // mounted() {
   //   this.scroll = new BetterScroll(this.$refs.wrapper);

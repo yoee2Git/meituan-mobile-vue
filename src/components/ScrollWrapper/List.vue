@@ -1,127 +1,107 @@
 <template>
-	<div class="scroll-wrapper" ref="wrapper">
-		<div class="scroll-content">
-			<div
-        v-if="!errorShow"
-			>
-				<view-list
-	       v-if="field === 'view'"
-	       :viewDatas="listDatas[cityId]"
-				></view-list>
+  <div class="scroll-wrapper" ref="wrapper">
+    <div class="scroll-conetent">
+      <div v-if="!errorShow">
+        <view-list v-if="field === 'view'" :viewDatas="listDatas[cityId]"></view-list>
 
-				<food-list
-	       v-if="field === 'food'"
-	       :foodDatas="listDatas[cityId]"
-				></food-list>
+        <food-list v-if="field === 'food'" :foodDatas="listDatas[cityId]"></food-list>
 
-				<hotel-list
-	       v-if="field === 'hotel'"
-	       :hotelDatas="listDatas[cityId]"
-				></hotel-list>
+        <hotel-list v-if="field === 'hotel'" :hotelDatas="listDatas[cityId]"></hotel-list>
 
-				<massage-list
-	       v-if="field === 'massage'"
-	       :massageDatas="listDatas[cityId]"
-				></massage-list>
+        <massage-list v-if="field === 'massage'" :massageDatas="listDatas[cityId]"></massage-list>
 
-				<ktv-list
-	       v-if="field === 'ktv'"
-	       :ktvDatas="listDatas[cityId]"
-				></ktv-list>
+        <ktv-list v-if="field === 'ktv'" :ktvDatas="listDatas[cityId]"></ktv-list>
 
-				<loading
-	       :loadingShow="loadingShow"
-				></loading>
-			</div>
+        <loading :loadingShow="loadingShow"></loading>
+      </div>
 
-			<error
-       :errorShow="errorShow"
-			></error>
-		</div>
-	</div>
+      <error :errorShow="errorShow"></error>
+    </div>
+  </div>
 </template>
 
 <script>
-	import BetterScroll from 'better-scroll';
-	import { mapState } from 'vuex';
+import BetterScroll from 'better-scroll';
+// import BScroll from "../common/BScroll";
 
-	import ViewList from './ViewList';
-	import FoodList from './FoodList';
-	import HotelList from './HotelList';
-	import MassageList from './MassageList';
-	import KtvList from './KtvList';
-	import Loading from './Sub/Loading';
-	import Error from './Sub/Error';
+import { mapState } from "vuex";
 
-	import { ListModel } from 'models/list';
+import ViewList from "./ViewList";
+import FoodList from "./FoodList";
+import HotelList from "./HotelList";
+import MassageList from "./MassageList";
+import KtvList from "./KtvList";
+import Loading from "./Sub/Loading";
+import Error from "./Sub/Error";
 
-	import tools from 'utils/tools';
+import { ListModel } from "models/list";
 
-	export default {
-		name: 'ListScrollWrapper',
-		components: {
-      ViewList,
-      FoodList,
-      HotelList,
-      MassageList,
-      KtvList,
-      Loading,
-      Error
-		},
-		data () {
-			return {
-				errorShow: false,
-				loadingShow: true,
-        listDatas: {}
-			}
-		},
+import tools from "utils/tools";
 
-		computed: {
-      ...mapState(['cityId', 'field'])
-		},
+export default {
+  name: "ListScrollWrapper",
+  components: {
+    ViewList,
+    FoodList,
+    HotelList,
+    MassageList,
+    KtvList,
+    Loading,
+    Error
+  },
+  data() {
+    return {
+      errorShow: false,
+      loadingShow: true,
+      listDatas: {}
+    };
+  },
 
-		mounted () {
-			this.scroll = new BetterScroll(this.$refs.wrapper);
-			this.getListDatas(this.cityId, this.field);
-		},
+  computed: {
+    ...mapState(["cityId", "field"])
+  },
 
-		methods: {
-			getListDatas (cityId, field) {
-				if (!this.listDatas[cityId]) {
-					const listModel = new ListModel();
+  mounted() {
+    this.scroll = new BetterScroll(this.$refs.wrapper);
+    this.getListDatas(this.cityId, this.field);
+  },
 
-				  this.loadingShow = true;
+  methods: {
+    getListDatas(cityId, field) {
+      if (!this.listDatas[cityId]) {
+        const listModel = new ListModel();
 
-					listModel.getListDatas(cityId, field).then((res) => {
-	          if (res && res.status === 0) {
-	          	const data = tools.formatJSON(res.data, 'keyword');
-	            
-	            this.errorShow = false;
-	            
-	            setTimeout(() => {
-	            	this.listDatas[cityId] = data;
-	            	this.loadingShow = false;
-	            }, 500);
-	          } else {
-	            this.errorShow = true;
-	            console.log({
-	              statusCode: res.status,
-	              errorMsg: res.error
-	            });
-	          }
-					});
-				}
-			}
-		},
+        this.loadingShow = true;
 
-		watch: {
-			cityId () {
-				this.getListDatas(this.cityId, this.field);
-			}
-		}
-	}
+        listModel.getListDatas(cityId, field).then(res => {
+          if (res && res.status === 0) {
+            const data = tools.formatJSON(res.data, "keyword");
+
+            this.errorShow = false;
+
+            setTimeout(() => {
+              this.listDatas[cityId] = data;
+              this.loadingShow = false;
+            }, 500);
+          } else {
+            this.errorShow = true;
+            console.log({
+              statusCode: res.status,
+              errorMsg: res.error
+            });
+          }
+        });
+      }
+    }
+  },
+
+  watch: {
+    cityId() {
+      this.getListDatas(this.cityId, this.field);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-	
 </style>
