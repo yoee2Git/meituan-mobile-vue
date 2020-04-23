@@ -17,7 +17,7 @@
 			title: {
 				type: String,
 				default () {
-					return '一线生活通'
+					return '北京美团网'
 				}
 			}
 		}

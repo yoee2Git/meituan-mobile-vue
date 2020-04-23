@@ -1,8 +1,8 @@
 {
-  "name": "yixiantong",
+  "name": "meituan",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "xiaoye@js++ <523579987@qq.com>",
+  "author": "yoee",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -12,7 +12,6 @@
   "dependencies": {
     "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
-    "fastclick": "^1.0.6",
     "qs": "^6.9.0",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^3.1.3",

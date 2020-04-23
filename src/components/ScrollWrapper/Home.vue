@@ -12,18 +12,17 @@
         <home-title :title="homeTitle.massageTitle"></home-title>
         <massage-list :massageDatas="homeDatas.massageDatas"></massage-list>
         <home-title :title="homeTitle.ktvTitle"></home-title>
+        <ktv-list :ktvDatas="homeDatas.ktvDatas"></ktv-list> 
+        <home-title :title="homeTitle.ktvTitle"></home-title>
         <ktv-list :ktvDatas="homeDatas.ktvDatas"></ktv-list>   
       </div>
       <error :errorShow="errorShow"></error>
 		</div>
 	</div>
-
 </template>
 
 <script>
   import BetterScroll from 'better-scroll';
-
-
   import CategoryIcons from './CategoryIcons';
   import HomeTitle from './Sub/HomeTitle';
   import ViewList from './ViewList';
@@ -74,7 +73,7 @@
 			...mapState(['cityId'])
 		},
 		mounted () {
-      this.scroll = new BetterScroll(this.$refs.wrapper);
+			this.scroll = new BetterScroll(this.$refs.wrapper, { mouseWheel: true, click: true, tap: true });
       this.currentCityId = this.cityId;
 			this.getHomeDatas(this.cityId);
 		},

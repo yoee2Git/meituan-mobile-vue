@@ -16,7 +16,7 @@
 		name: 'FalseInput',
 		data () {
 			return {
-				placeholderText: '美食 / 景点 / 酒店 / 按摩 / KTV'
+				placeholderText: '请输入商家名、品类或者商圈...'
 			}
 		}
 	}

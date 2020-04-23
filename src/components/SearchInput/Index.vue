@@ -17,7 +17,7 @@
 		data () {
 			return {
 				keyword: '',
-				placeholder: '美食 / 景点 / 酒店 / 按摩 / KTV'
+				placeholder: '请输入商家名、品类或者商圈...'
 			}
 		},
 
