@@ -17,4 +17,4 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-running here: http://localhost:8080
+running here: http://localhost:8000
