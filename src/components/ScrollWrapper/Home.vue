@@ -12,8 +12,6 @@
         <home-title :title="homeTitle.massageTitle"></home-title>
         <massage-list :massageDatas="homeDatas.massageDatas"></massage-list>
         <home-title :title="homeTitle.ktvTitle"></home-title>
-        <ktv-list :ktvDatas="homeDatas.ktvDatas"></ktv-list> 
-        <home-title :title="homeTitle.ktvTitle"></home-title>
         <ktv-list :ktvDatas="homeDatas.ktvDatas"></ktv-list>   
       </div>
       <error :errorShow="errorShow"></error>
@@ -54,7 +52,7 @@
         currentCityId: 0,
         errorShow: false,
       	homeTitle: {
-         foodTitle: '推荐美食',
+         foodTitle: '猜你喜欢',
          hotelTitle: '推荐酒店',
          ktvTitle: '推荐KTV',
          massageTitle: '推荐按摩',

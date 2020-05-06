@@ -11,7 +11,7 @@
 			title: {
 				type: String,
 				defualt () {
-					return '一线生活通'
+					return '美团网'
 				}
 			}
 		}
